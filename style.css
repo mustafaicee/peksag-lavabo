@@ -330,7 +330,7 @@ nav a:hover::after {
 /* Responsive */
 
 /* Hamburger ve mobil menü ayarları */
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .menu-icon {
     display: block;
   }
