@@ -111,7 +111,7 @@ nav a:hover::after {
   color:  #5b2c6f;
   text-transform: uppercase;
   letter-spacing: 5px;
-  border-bottom: 4px solid #5b2c6f;
+  border-bottom: 4px solid  #5b2c6f;
   padding-bottom: 15px;
   margin: 0 auto;
   max-width: max-content;
