@@ -92,6 +92,10 @@ nav a:hover::after {
   user-select: none;
   padding: 0 20px;
   color: #c49b66;
+  position: absolute;
+  right: 20px;
+  top: 8px; /* 🔼 ikon yukarı taşındı */
+  z-index: 1001;
 }
 
 /* Ana Sayfa Hero */
@@ -316,8 +320,8 @@ nav a:hover::after {
   max-width: 800px;
   margin: 25px auto;
   padding: 15px 25px;
-  background-color: #fff8e1; /* Açık krem tonu */
-  border-left: 6px solid #c49b66; /* Altın rengi çizgi */
+  background-color: #fff8e1;
+  border-left: 6px solid #c49b66;
   font-size: 1.1rem;
   color: #5a4a00;
   font-style: italic;
@@ -327,72 +331,36 @@ nav a:hover::after {
   text-align: center;
 }
 
-/* Responsive */
-
-/* Hamburger ve mobil menü ayarları */
-@media (max-width: 800px) {
-  .menu-icon {
-    display: block;
-  }
-
-  nav {
-    position: fixed;
-    top: 70px;
-    right: 0;
-    background: white;
-    width: 200px;
-    height: calc(100% - 70px);
-    flex-direction: column;
-    padding-top: 20px;
-    box-shadow: -4px 0 8px rgba(0,0,0,0.1);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1100;
-  }
-
-  nav a {
-    margin: 15px 20px;
-    font-size: 1.2rem;
-  }
-
-  #menu-toggle:checked + .menu-icon + nav {
-    transform: translateX(0);
-  }
-
-  body.anasayfa header {
-    padding: 20px 30px;
-  }
-}
-/*alttaki ürün*/
-.Ekurun{
-display: grid;
+/* Alttaki ürün */
+.Ekurun {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 40px;
-  background-color: #f5f5f5; 
+  background-color: #f5f5f5;
   border-left: 6px solid #fff8e1;
   font-style: italic;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-
 }
-/*ek Başılığı*/
-.Ek{
+
+/* Ek Başlığı */
+.Ek {
   max-width: 1200px;
   margin: 25px auto;
   padding: 15px 25px;
-  background-color: #f5f5f5; /* Açık krem tonu */
-  border-left: 6px solid #fff8e1; /* Altın rengi çizgi */
+  background-color: #f5f5f5;
+  border-left: 6px solid #fff8e1;
   font-size: 1.1rem;
-  color:black;
+  color: black;
   font-style: bold;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   user-select: none;
   text-align: center;
   gap: 20px;
-
 }
+
 .urun {
   background-color: white;
   padding: 20px;
@@ -400,7 +368,67 @@ display: grid;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
+/* Responsive */
 
+/* Mobil hamburger menü ve animasyonlu linkler */
+@media (max-width: 800px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: #c49b66;
+    width: 220px;
+    height: calc(100% - 60px);
+    flex-direction: column;
+    padding-top: 30px;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    border-radius: 10px 0 0 10px;
+    z-index: 1100;
+    overflow: hidden;
+  }
+
+  #menu-toggle:checked + .menu-icon + nav {
+    transform: translateX(0);
+  }
+
+  nav a {
+    margin: 15px 20px;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 700;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  #menu-toggle:checked + .menu-icon + nav a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #menu-toggle:checked + .menu-icon + nav a:nth-child(1) { transition-delay: 0.1s; }
+  #menu-toggle:checked + .menu-icon + nav a:nth-child(2) { transition-delay: 0.2s; }
+  #menu-toggle:checked + .menu-icon + nav a:nth-child(3) { transition-delay: 0.3s; }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff8e1;
+  }
+
+  body.anasayfa header {
+    padding: 20px 30px;
+  }
+}
 
 @media (max-width: 600px) {
   header {
